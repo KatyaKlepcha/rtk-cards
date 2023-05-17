@@ -1,0 +1,17 @@
+.paper {
+    width: 413px;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    margin-top: 60px;
+}
+
+.title{
+    margin: 0;
+}
