@@ -1,5 +1,5 @@
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm, UseFormRegister } from "react-hook-form";
 import style from "features/auth/login/Login.module.css";
 import s from "features/auth/registration/Register.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -7,8 +7,10 @@ import List from "common/components/List/List";
 import CommonButton from "common/components/Button/CommonButton";
 import { useActions } from "app/hooks/useActions";
 import { authThunks } from "features/auth/auth-reducer";
-import Input from "common/components/Input/Input";
+import EmailInput from "common/components/EmailInput/EmailInput";
 import PasswordInput from "common/components/PasswordInput/PasswordInput";
+import Checkbox from "common/components/Checkbox/Checkbox";
+import { toast } from "react-toastify";
 
 type FormValues = {
   email: string;
@@ -25,51 +27,44 @@ const Login = () => {
     formState: { errors, isValid },
     setError,
     handleSubmit, //обертка над нашим кастомным хэндлером отправки формы. позволяет сделать то, что например связано с валидацией
-    // reset
+    reset,
   } = useForm<FormValues>({
     mode: "onBlur",
   });
 
   const onSubmit: SubmitHandler<FormValues> = (values) => {
-    // alert(JSON.stringify(data))
-    // reset()
-    login(values);
-    navigate("/profile");
+    login(values)
+      .unwrap()
+      .then(() => {
+        toast.success("You are successfully logged in");
+        navigate("/profile");
+      })
+      .catch((err) => {
+        toast.error(err.e.response.data.error);
+      });
+
+    if (isValid) {
+      reset();
+    }
   };
 
   return (
     <List title={"Sign In"}>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-        <Input name={"email"} label="Email:" register={register} />
-        {/*<div className={s.error}>{errors?.email && <p>{errors?.email?.message || "Error"}</p>}</div>*/}
+        <EmailInput label="Email" name={"email"} register={register} error={errors.email?.message} />
 
         <div className={style.inputBlock}>
-          {/*    <input*/}
-          {/*      placeholder={"Password"}*/}
-          {/*      type={hideIcon ? "password" : "text"}*/}
-          {/*      {...register("password", {*/}
-          {/*        required: "The field is required",*/}
-          {/*      })}*/}
-          {/*    />*/}
-          <PasswordInput name={"password"} label="Password:" register={register} />
+          <PasswordInput label="Password:" name={"password"} register={register} error={errors.password?.message} />
         </div>
-        {/*</label>*/}
-        {/*<div className={s.error}>{errors?.password && <p>{errors?.password?.message || "Error"}</p>}</div>*/}
-        <div className={style.checkbox}>
-          <Input name={"rememberMe"} label="Remember me" register={register} type={"checkbox"} />
-        </div>
+        <Checkbox label={"Remember me"} name={"rememberMe"} register={register} />
 
-        {/*<label className={style.checkbox}>*/}
-        {/*  <input type={"checkbox"} {...register("rememberMe")} />*/}
-        {/*  Remember me*/}
-        {/*</label>*/}
-        <CommonButton title={"Sign In"} variant={"contained"} />
         <div className={style.forgotPassword}>
           <NavLink to={"/forgot-password"}>Forgot Password?</NavLink>
         </div>
+        <CommonButton title={"Sign In"} variant={"contained"} className={style.signInButton} disabled={!isValid} />
         <div className={style.signUp}>
           <div>Already have an account?</div>
-          <NavLink to={"/register"}>Sign Up</NavLink>
+          <NavLink to="/register">Sign Up</NavLink>
         </div>
       </form>
     </List>

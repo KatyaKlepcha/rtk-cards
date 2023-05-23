@@ -22,6 +22,13 @@
     align-items: center;
 }
 
+.personalName{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    border-bottom: 1px dashed #000000;
+}
+
 .avatar {
     width: 36px;
     height: 36px;

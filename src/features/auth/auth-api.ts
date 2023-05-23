@@ -56,6 +56,7 @@ export type UpdateUserType = {
 };
 
 export type ProfileType = {
+  avatar: File;
   _id: string;
   email: string;
   rememberMe: boolean;

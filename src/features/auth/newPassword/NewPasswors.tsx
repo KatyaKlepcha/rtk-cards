@@ -41,9 +41,9 @@ const NewPassword = () => {
   return (
     <List title={"Create new password"}>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-        <PasswordInput name={"password"} label="Password:" register={register} />
+        <PasswordInput name={"password"} label="Password:" register={register} error={errors.password?.message} />
         <div className={s.text}> Create new password and we will send you further instructions to email</div>
-        <CommonButton title={"Create new password"} variant={"contained"} />
+        <CommonButton title={"Create new password"} variant={"contained"} disabled={!isValid} />
       </form>
     </List>
   );

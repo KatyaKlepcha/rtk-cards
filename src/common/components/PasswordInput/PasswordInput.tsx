@@ -8,18 +8,20 @@ type InputPropsType<IFormValues extends FieldValues> = {
   label: string;
   name: Path<IFormValues>;
   register: UseFormRegister<IFormValues>;
-  type?: string;
-  rules?: RegisterOptions;
+  // type?: string;
+  // rules?: RegisterOptions;
   error?: any;
+  required?: boolean;
+  validate?: any;
 };
 
 const PasswordInput = <IFormValues extends Record<string, unknown>>({
   label,
   register,
   name,
-  type,
-  rules,
+  required,
   error,
+  validate,
 }: InputPropsType<IFormValues>) => {
   const [hideIcon, setHideIcon] = useState(true);
 
@@ -32,13 +34,20 @@ const PasswordInput = <IFormValues extends Record<string, unknown>>({
       <label>{label}</label>
       <div className={s.wrapper}>
         <input
-          {...(register && register(name, rules))}
+          {...(register &&
+            register(name, {
+              required: "Password is required",
+              minLength: {
+                value: 7,
+                message: "Must be 7 characters or more",
+              },
+              validate,
+            }))}
           name={name}
           type={hideIcon ? "password" : "text"}
           className={s.input}
         />
         <div className={cn({ [s.openPassword]: !hideIcon }, s.hidePassword)} onClick={onChangeIcon}>
-          {/*<div className={cn({!hideIcon: 's.openPassword' }, 's.hidePassword')} onClick={onChangeIcon}>*/}
           <img className={s.iconEye} src={eye} alt={"iconEye"} />
         </div>
       </div>

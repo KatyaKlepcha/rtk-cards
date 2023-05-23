@@ -8,7 +8,7 @@ import { useActions } from "app/hooks/useActions";
 import { selectIsForgotPassword } from "features/auth/forgotPassword/forgotPassword-selector";
 import { useSelector } from "react-redux";
 import { authThunks } from "features/auth/auth-reducer";
-import Input from "common/components/Input/Input";
+import EmailInput from "common/components/EmailInput/EmailInput";
 
 type FormValues = {
   email: string;
@@ -35,10 +35,6 @@ const ForgotPassword = () => {
     forgotPassword(values.email);
   };
 
-  // if (isSignUp) {
-  //   return <Navigate to={"/login"} />;
-  // }
-
   if (isForgotPassword) {
     return <Navigate to={"/check-email"} />;
   }
@@ -46,10 +42,15 @@ const ForgotPassword = () => {
   return (
     <List title={"Forgot your password"}>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
-        <Input name={"email"} label="Email:" register={register} />
+        <EmailInput label="Email:" name={"email"} register={register} error={errors.email?.message} />
 
         <div className={s.text}> Enter your email address and we will send you further instructions</div>
-        <CommonButton title={"Send Instructions"} variant={"contained"} />
+        <CommonButton
+          title={"Send Instructions"}
+          variant={"contained"}
+          className={s.instructionsButton}
+          disabled={!isValid}
+        />
         <div className={s.rememberPassword}>
           <div>Did you remember your password?</div>
           <NavLink to={"/login"}>Try logging in</NavLink>

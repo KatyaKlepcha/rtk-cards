@@ -1,12 +1,12 @@
-.checkbox {
-    display: flex;
-    align-items: center;
-    margin: 24px 0 30px;
-}
+/*.checkbox {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    margin: 24px 0 0;*/
+/*}*/
 
-.checkbox label {
-    margin: 0 0 -10px 30px;
-}
+/*.checkbox label {*/
+/*    margin: 0 0 -10px 30px;*/
+/*}*/
 
 a {
     text-decoration-line: underline;
@@ -17,6 +17,10 @@ a {
 
 .inputBlock {
     position: relative;
+}
+
+form .signInButton {
+    margin-top: 69px;
 }
 
 .signUp {

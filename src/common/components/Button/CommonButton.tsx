@@ -8,9 +8,10 @@ type PropsType = {
   variant: "text" | "contained" | "outlined";
   className?: string;
   onClickHandler?: () => void;
+  disabled?: boolean;
 };
 
-const CommonButton: FC<PropsType> = ({ title, variant, className, onClickHandler }) => {
+const CommonButton: FC<PropsType> = ({ title, variant, className, onClickHandler, disabled }) => {
   return (
     <Button
       sx={{
@@ -22,6 +23,7 @@ const CommonButton: FC<PropsType> = ({ title, variant, className, onClickHandler
       color={"primary"}
       className={cn(className, s.button)}
       onClick={onClickHandler}
+      disabled={disabled}
     >
       {title}
     </Button>
