@@ -1,0 +1,32 @@
+.container {
+    position: relative;
+}
+
+.searchLabel {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+    opacity: 1;
+    margin-top: 0;
+}
+
+.inputSearch {
+    border: 1px solid #4C4C4C;
+    padding-left: 30px;
+    margin-top: 10px;
+    height: 36px;
+    opacity: 0.5;
+    border-radius: 2px;
+    color: #808080;
+}
+
+.searchImg {
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+}
+
+.searchImg {
+    position: absolute;
+}

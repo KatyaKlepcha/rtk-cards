@@ -4,12 +4,25 @@ import { createAppAsyncThunk } from "common/utils/create -app-async-thunk";
 import { ChangeProfileType, profileApi } from "features/profile/profile-api";
 import { thunkTryCatch } from "common/utils/thunk-try-catch";
 
+type InitialStateType = {
+  email: string | undefined;
+  name: string | undefined;
+  avatar?: string | undefined | null;
+  _id: string;
+};
+
+const initialState: InitialStateType = {
+  email: "",
+  name: "",
+  avatar: "",
+  _id: "",
+};
+
 const getProfile = createAppAsyncThunk<{ profile: ProfileType }, void>("profile/getProfile", async (arg, thunkAPI) => {
   const { dispatch, rejectWithValue } = thunkAPI;
   // dispatch(appActions.setAppStatus({ status: "loading" }));
   return thunkTryCatch(thunkAPI, async () => {
     const res = await profileApi.getProfile();
-    console.log("res.data", res.data);
     return { profile: res.data };
   });
   // try {
@@ -33,7 +46,6 @@ const changeProfile = createAppAsyncThunk<{ profile: ProfileType }, ChangeProfil
 
     return thunkTryCatch(thunkAPI, async () => {
       const res = await profileApi.changeProfile(arg);
-      console.log("changeProfile", res.data.updatedUser);
       return { profile: res.data.updatedUser };
     });
 

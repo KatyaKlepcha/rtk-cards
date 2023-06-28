@@ -1,0 +1,13 @@
+.tableContainer {
+    margin: 24px 0 36px;
+    border: 1px solid #EFEFEF;
+    border-radius: 2px;
+}
+
+.header tr th {
+    background-color: #EFEFEF;
+}
+
+.arrowImg {
+    margin-left: 6px;
+}

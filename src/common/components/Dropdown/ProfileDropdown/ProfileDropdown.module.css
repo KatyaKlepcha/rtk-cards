@@ -1,0 +1,51 @@
+.nameWrapper {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333333;
+    padding: 0 0 12px;
+}
+
+
+.nameBlock {
+    display: flex;
+    flex-direction: column;
+}
+
+.userName {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.mail {
+    color: #808080;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 36px;
+    margin-right: 8px;
+}
+
+.profileBlock {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.profileBlock div:first-child {
+    padding: 12px 0 12px;
+    border-bottom: 1px solid #333333;
+    display: flex;
+}
+
+.userImg, .logoutImg {
+    margin-right: 6px;
+}
+
+.profileBlock div:last-child {
+    padding: 12px 0 0;
+    display: flex;
+}

@@ -1,0 +1,24 @@
+.tableContainer {
+    margin-bottom: 36px;
+    /*border: 1px solid #EFEFEF;*/
+    border-radius: 2px;
+}
+
+.header tr th {
+    background-color: #333333;
+    border-bottom: none;
+    color: #fff;
+}
+
+
+.arrowImgDown {
+    margin-left: 6px;
+    transition: 1s;
+    transform: rotate(180deg);
+}
+
+.arrowImgUp {
+    margin-left: 6px;
+    transform: rotate(0deg);
+    transition: 1s;
+}

@@ -1,0 +1,20 @@
+.container {
+
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 27px 0;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+}
+
+.learnPackButton{
+    width: 184px;
+    height: 36px;
+}

@@ -21,6 +21,8 @@ a {
 
 form .signInButton {
     margin-top: 69px;
+    background-color: #8C61FF;
+    border-radius: 4px;
 }
 
 .signUp {

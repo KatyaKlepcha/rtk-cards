@@ -1,0 +1,10 @@
+.starImg {
+    cursor: pointer;
+    stroke: #E5AC39;
+    fill: transparent;
+    margin-right: 5px;
+}
+
+.starSelected {
+    fill: #E5AC39;
+}

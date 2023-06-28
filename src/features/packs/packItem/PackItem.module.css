@@ -1,0 +1,20 @@
+.container tr th {
+    border-bottom: none;
+    color: #fff;
+    /*display: flex;*/
+}
+
+.container .packName, .text {
+    border: 1px solid #333333;
+    color: #fff;
+}
+
+.container .text {
+    border-bottom: 1px solid #333333;
+    color: #fff;
+}
+
+.packName a {
+    color: #fff;
+    text-decoration: none;
+}

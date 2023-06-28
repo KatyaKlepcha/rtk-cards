@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.pages ul li button, .pages ul li div {
+    color: #fff;
+}
+
+.selectWrapper {
+    display: flex;
+    align-items: center;
+}
+
+/*.pagination selected {*/
+/*    background-color: #8C61FF;*/
+/*}*/

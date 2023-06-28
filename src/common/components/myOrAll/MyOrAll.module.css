@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+}
+
+.buttons {
+    display: flex;
+    width: 196px;
+}
+
+.buttons .button {
+    border-radius: 2px;
+    color: #fff;
+    height: 36px;
+    border: 1px solid #4C4C4C;
+    box-shadow: none;
+}
+
+.buttons .button.active{
+    background-color: #8C61FF;
+    color: #fff;
+}
+
+/*.buttons .button:hover {*/
+/*    background-color: #366EFF;*/
+/*    color: #fff;*/
+/*}*/

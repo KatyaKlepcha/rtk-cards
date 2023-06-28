@@ -4,7 +4,6 @@ import s from "./Profile.module.css";
 import CommonButton from "common/components/Button/CommonButton";
 import Avatar from "../../common/images/Avatar.jpg";
 import EditMode from "../../common/images/EditMode.png";
-import arrow from "../../common/images/arrow.svg";
 import { useActions } from "app/hooks/useActions";
 import { profileThunks } from "features/profile/profile-reducer";
 import { authThunks } from "features/auth/auth-reducer";
@@ -12,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { selectEmail, selectName } from "./profile-selector";
 import changeAva from "../../common/images/ChangeAvatar.svg";
 import { useAppSelector } from "app/hooks/useAppSelector";
+import BackToPackList from "../../common/components/BackToPakList/BackToPackList";
 
 const Profile = () => {
   const email = useAppSelector(selectEmail);
@@ -56,10 +56,7 @@ const Profile = () => {
 
   return (
     <div className={s.container}>
-      <div className={s.back}>
-        <img src={arrow} alt={"arrow"} className={s.arrowImg} />
-        Back to Packs List
-      </div>
+      <BackToPackList />
       <List title={"Personal Information"}>
         <div className={s.avatarBlock}>
           <label>

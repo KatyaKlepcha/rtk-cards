@@ -37,7 +37,7 @@ const Login = () => {
       .unwrap()
       .then(() => {
         toast.success("You are successfully logged in");
-        navigate("/profile");
+        navigate("/packs");
       })
       .catch((err) => {
         toast.error(err.e.response.data.error);

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { authThunks } from "../features/auth/auth-reducer";
 
 export type RequestStatusType = "idle" | "loading";
 
@@ -21,6 +22,15 @@ const slice = createSlice({
       state.error = action.payload.error;
     },
   },
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(authThunks.initializeApp.fulfilled, (state) => {
+  //       state.isInitialized = true;
+  //     })
+  //     .addCase(authThunks.initializeApp.rejected, (state) => {
+  //       state.isInitialized = true;
+  //     });
+  // },
 });
 
 // Создаем reducer с помощью slice

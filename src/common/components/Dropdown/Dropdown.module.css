@@ -1,0 +1,48 @@
+.dropdown {
+    color: #000;
+}
+
+.dropdownButton {
+    position: relative;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    display: flex;
+    font-size: 16px;
+    height: auto;
+    letter-spacing: 0;
+    line-height: 22px;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+}
+
+.dropdownIcon {
+    margin-bottom: 2px;
+    margin-left: 10px;
+    transform: rotate(180deg);
+    transition: all ease-in-out 0.2s;
+}
+
+.menu {
+    background-color: #171717;
+    border-radius: 12px;
+    color: #fff;
+    left: 50%;
+    position: absolute;
+    top: calc(100% + 10px);
+    transform: translateX(-50%);
+    width: 300px;
+    z-index: 22;
+    padding: 12px;
+}
+
+.menu::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: -20px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid #171717;
+}
